@@ -24,6 +24,15 @@ input.onGesture(Gesture.LogoDown, function () {
         bird.change(LedSpriteProperty.Y, 1)
     }
 })
+input.onButtonPressed(Button.AB, function () {
+    if (status == 0) {
+        status = 1
+        index = 0
+        obstacles = []
+        bird = game.createSprite(0, 2)
+        bird.set(LedSpriteProperty.Blink, 300)
+    }
+})
 input.onButtonPressed(Button.B, function () {
     if (status == 0) {
         if (way < 3) {
@@ -42,19 +51,13 @@ input.onPinPressed(TouchPin.P1, function () {
 })
 let emptyObstacleY = 0
 let ticks = 0
-let bird: game.LedSprite = null
 let obstacles: game.LedSprite[] = []
 let index = 0
+let bird: game.LedSprite = null
 let status = 0
 let way = 0
 way = 1
 status = 0
-if (status == 1) {
-    index = 0
-    obstacles = []
-    bird = game.createSprite(0, 2)
-    bird.set(LedSpriteProperty.Blink, 300)
-}
 basic.forever(function () {
     if (status == 0) {
         if (way == 1) {
