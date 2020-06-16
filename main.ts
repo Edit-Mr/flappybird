@@ -3,11 +3,6 @@ input.onPinPressed(TouchPin.P0, function () {
         bird.change(LedSpriteProperty.Y, -1)
     }
 })
-input.onGesture(Gesture.LogoUp, function () {
-    if (way == 2) {
-        bird.change(LedSpriteProperty.Y, -1)
-    }
-})
 input.onButtonPressed(Button.A, function () {
     if (status == 0) {
         if (way > 1) {
@@ -17,11 +12,6 @@ input.onButtonPressed(Button.A, function () {
         }
     } else if (way == 1) {
         bird.change(LedSpriteProperty.Y, -1)
-    }
-})
-input.onGesture(Gesture.LogoDown, function () {
-    if (way == 2) {
-        bird.change(LedSpriteProperty.Y, 1)
     }
 })
 input.onButtonPressed(Button.AB, function () {
@@ -68,15 +58,7 @@ basic.forever(function () {
                 . # . # .
                 . . . . .
                 `)
-        } else if (way == 2) {
-            basic.showLeds(`
-                . . . . .
-                . # # # .
-                # . # . #
-                # # # # #
-                # . . . #
-                `)
-        } else {
+        } else if (way == 3) {
             basic.showLeds(`
                 . # # # .
                 . # # # .
